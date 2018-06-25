@@ -1,0 +1,3 @@
+Release notes 2.1.2
+
+First Release with Cryptonote V-7
