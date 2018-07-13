@@ -36,8 +36,8 @@ const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 60;
 // MONEY_SUPPLY - total number coins to be generated
 const uint64_t MONEY_SUPPLY                                  = UINT64_C(3000000000000000);
 const uint32_t KILL_HEIGHT                          = 0;
-const uint32_t POW_CRYPTONIGHT_V7_BLOCK_INDEX                 = 0;
-const uint32_t POW_CRYPTONIGHT_V7_LAST_BLOCK                 = 0;
+const uint32_t POW_CRYPTONIGHT_V7_BLOCK_INDEX                 = 12500;
+const uint32_t POW_CRYPTONIGHT_V7_LAST_BLOCK                 = uint32_t(-1);
 const unsigned EMISSION_SPEED_FACTOR                         = 17;
 const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(1000000000000000);
 static_assert(EMISSION_SPEED_FACTOR <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
@@ -129,7 +129,7 @@ const uint32_t P2P_DEFAULT_CONNECTION_TIMEOUT                = 5000;          //
 const uint32_t P2P_DEFAULT_PING_CONNECTION_TIMEOUT           = 2000;          // 2 seconds
 const uint64_t P2P_DEFAULT_INVOKE_TIMEOUT                    = 60 * 2 * 1000; // 2 minutes
 const size_t   P2P_DEFAULT_HANDSHAKE_INVOKE_TIMEOUT          = 5000;          // 5 seconds
-const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "";
+const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "2018f9a5a434a9f1510d13336228c0b1ee9c918ce505efe225d8c94d045f3684";
 
 const char* const SEED_NODES[] = { "217.182.199.62:18168", "139.99.106.13:18168", "74.208.10.18:18168" };
 
