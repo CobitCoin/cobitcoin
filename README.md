@@ -9,7 +9,7 @@ The change occurs automatically after the Daemons switch. The sources are availa
 https://github.com/cobitcoin
 All binaries will be available and should be updated.
 
-
+#####################################################
 
 Cobitcoin is a cryptocurrency focused on providing a decentralized mechanism of exchange, and anonymity via untraceable and unlinkable transactions.
 
