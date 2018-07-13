@@ -1,3 +1,16 @@
+
+## **Mandatory Update**
+
+Due to changes in the security of the Nodes. We are updating their keys. 
+
+## Please update your nodes or your transactions will be invalid !
+
+The change occurs automatically after the Daemons switch. The sources are available in Github:
+https://github.com/cobitcoin
+All binaries will be available and should be updated.
+
+
+
 Cobitcoin is a cryptocurrency focused on providing a decentralized mechanism of exchange, and anonymity via untraceable and unlinkable transactions.
 
 Building Cobitcoin
