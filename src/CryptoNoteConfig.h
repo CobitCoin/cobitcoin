@@ -36,7 +36,7 @@ const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 60;
 // MONEY_SUPPLY - total number coins to be generated
 const uint64_t MONEY_SUPPLY                                  = UINT64_C(3000000000000000);
 const uint32_t KILL_HEIGHT                          = 0;
-const uint32_t POW_CRYPTONIGHT_V7_BLOCK_INDEX                 = 12500;
+const uint32_t POW_CRYPTONIGHT_V7_BLOCK_INDEX                 = 12800;
 const uint32_t POW_CRYPTONIGHT_V7_LAST_BLOCK                 = uint32_t(-1);
 const unsigned EMISSION_SPEED_FACTOR                         = 17;
 const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(1000000000000000);
@@ -95,7 +95,6 @@ const char     CRYPTONOTE_POOLDATA_FILENAME[]                = "poolstate.bin";
 const char     P2P_NET_DATA_FILENAME[]                       = "p2pstate.bin";
 const char     MINER_CONFIG_FILE_NAME[]                      = "miner_conf.json";
 const char     GENESIS_COINBASE_TX_HEX[]                     = "010a01ff000100020e2d7b7d04326b6185856316653f29160fe6d5b80450c8b9f72cf920915c3db52101f4335efca6efe73b6147961a845f097abaf073846e0f0acb42f239f499fe9761";
-
 } // parameters
 
 const char     CRYPTONOTE_NAME[]                             = "cobitcoin";
@@ -129,6 +128,11 @@ const uint32_t P2P_DEFAULT_CONNECTION_TIMEOUT                = 5000;          //
 const uint32_t P2P_DEFAULT_PING_CONNECTION_TIMEOUT           = 2000;          // 2 seconds
 const uint64_t P2P_DEFAULT_INVOKE_TIMEOUT                    = 60 * 2 * 1000; // 2 minutes
 const size_t   P2P_DEFAULT_HANDSHAKE_INVOKE_TIMEOUT          = 5000;          // 5 seconds
+const uint32_t  P2P_FAILED_ADDR_FORGET_SECONDS                  = (60*60);     //1 hour
+const uint32_t  P2P_IP_BLOCKTIME                                 = (60*60*24);  //24 hour
+const uint32_t  P2P_IP_FAILS_BEFORE_BLOCK                       = 10;
+const uint32_t  P2P_IDLE_CONNECTION_KILL_INTERVAL               = (5*60); //5 minutes
+
 const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "2018f9a5a434a9f1510d13336228c0b1ee9c918ce505efe225d8c94d045f3684";
 
 const char* const SEED_NODES[] = { "217.182.199.62:18168", "139.99.106.13:18168", "74.208.10.18:18168" };
@@ -144,7 +148,6 @@ const std::initializer_list<CheckpointData> CHECKPOINTS = {  };
 } // CryptoNote
 
 #define ALLOW_DEBUG_COMMANDS
-
 
 
 
