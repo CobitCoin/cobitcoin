@@ -4,7 +4,7 @@
 Due to changes in the security of the Nodes. We are updating their keys. 
 
 ## Please update your nodes or your transactions will be invalid !
-changes will occur after block 12800
+changes will occur after block 13000
 
 The change occurs automatically after the Daemons switch. The sources are available in Github:
 https://github.com/cobitcoin

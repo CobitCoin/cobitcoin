@@ -415,7 +415,7 @@ namespace CryptoNote
 
       CachedBlock cb(b);
       uint32_t cn_variant = 0;
-      if (m_currency.POWCryptoNightV7BlockIndex() && m_currency.POWCryptoNightV7BlockIndex() <= cb.getBlockIndex() && (m_currency.POWCryptoNightV7LastBlock() == 0 || m_currency.POWCryptoNightV7LastBlock() >= cb.getBlockIndex()))
+      if ( m_currency.POWCryptoNightV7BlockIndex() <= cb.getBlockIndex() && m_currency.POWCryptoNightV7LastBlock() > cb.getBlockIndex())
         cn_variant = 1;
       if (!m_stop) {
         try {

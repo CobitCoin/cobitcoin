@@ -36,7 +36,7 @@ const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 60;
 // MONEY_SUPPLY - total number coins to be generated
 const uint64_t MONEY_SUPPLY                                  = UINT64_C(3000000000000000);
 const uint32_t KILL_HEIGHT                          = 0;
-const uint32_t POW_CRYPTONIGHT_V7_BLOCK_INDEX                 = 12800;
+const uint32_t POW_CRYPTONIGHT_V7_BLOCK_INDEX                 = 13000;
 const uint32_t POW_CRYPTONIGHT_V7_LAST_BLOCK                 = uint32_t(-1);
 const unsigned EMISSION_SPEED_FACTOR                         = 17;
 const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(1000000000000000);
