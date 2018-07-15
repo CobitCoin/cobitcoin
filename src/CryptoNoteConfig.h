@@ -36,8 +36,10 @@ const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 60;
 // MONEY_SUPPLY - total number coins to be generated
 const uint64_t MONEY_SUPPLY                                  = UINT64_C(3000000000000000);
 const uint32_t KILL_HEIGHT                          = 0;
-const uint32_t POW_CRYPTONIGHT_V7_BLOCK_INDEX                 = 13220;
-const uint32_t POW_CRYPTONIGHT_V7_LAST_BLOCK                 = uint32_t(-1);
+const uint32_t ZAWY_LWMA2_DIFFICULTY_BLOCK_INDEX                 = 13350;
+const uint32_t ZAWY_LWMA2_DIFFICULTY_LAST_BLOCK                 = 4294967294;
+const uint64_t ZAWY_LWMA2_DIFFICULTY_MIN                 = 1;
+const size_t ZAWY_LWMA2_DIFFICULTY_N                 = 70+1;
 const unsigned EMISSION_SPEED_FACTOR                         = 17;
 const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(1000000000000000);
 static_assert(EMISSION_SPEED_FACTOR <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");

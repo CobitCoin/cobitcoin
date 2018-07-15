@@ -1,4 +1,7 @@
-Release notes 2.1.2.1252
+Release notes 2.1.2
 
-First Release with Cryptonote V-7 and blockhosts
+Release notes 2.1.2.1253
+
+
+First Release with Cryptonote LWMA2 and blockhosts
 add fork block at 13000

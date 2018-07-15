@@ -38,7 +38,7 @@ Miner::~Miner() {
   assert(m_state != MiningState::MINING_IN_PROGRESS);
 }
 
-BlockTemplate Miner::mine(const BlockMiningParameters& blockMiningParameters, size_t threadCount, uint32_t cryptonightVariant) {
+BlockTemplate Miner::mine(const BlockMiningParameters& blockMiningParameters, size_t threadCount) {
   if (threadCount == 0) {
     throw std::runtime_error("Miner requires at least one thread");
   }
@@ -50,7 +50,7 @@ BlockTemplate Miner::mine(const BlockMiningParameters& blockMiningParameters, si
   m_state = MiningState::MINING_IN_PROGRESS;
   m_miningStopped.clear();
 
-runWorkers(blockMiningParameters, threadCount, cryptonightVariant);
+  runWorkers(blockMiningParameters, threadCount);
 
   assert(m_state != MiningState::MINING_IN_PROGRESS);
   if (m_state == MiningState::MINING_STOPPED) {
@@ -71,7 +71,7 @@ void Miner::stop() {
   }
 }
 
-void Miner::runWorkers(BlockMiningParameters blockMiningParameters, size_t threadCount, uint32_t cryptonightVariant) {
+void Miner::runWorkers(BlockMiningParameters blockMiningParameters, size_t threadCount) {
   assert(threadCount > 0);
 
   m_logger(Logging::INFO) << "Starting mining for difficulty " << blockMiningParameters.difficulty;
@@ -81,7 +81,7 @@ void Miner::runWorkers(BlockMiningParameters blockMiningParameters, size_t threa
 
     for (size_t i = 0; i < threadCount; ++i) {
       m_workers.emplace_back(std::unique_ptr<System::RemoteContext<void>> (
-        new System::RemoteContext<void>(m_dispatcher, std::bind(&Miner::workerFunc, this, blockMiningParameters.blockTemplate, blockMiningParameters.difficulty, threadCount, cryptonightVariant)))
+        new System::RemoteContext<void>(m_dispatcher, std::bind(&Miner::workerFunc, this, blockMiningParameters.blockTemplate, blockMiningParameters.difficulty, threadCount)))
       );
 
       blockMiningParameters.blockTemplate.nonce++;
@@ -97,14 +97,14 @@ void Miner::runWorkers(BlockMiningParameters blockMiningParameters, size_t threa
   m_miningStopped.set();
 }
 
-void Miner::workerFunc(const BlockTemplate& blockTemplate, Difficulty difficulty, uint32_t nonceStep, uint32_t cryptonightVariant) {
+void Miner::workerFunc(const BlockTemplate& blockTemplate, Difficulty difficulty, uint32_t nonceStep) {
   try {
     BlockTemplate block = blockTemplate;
     Crypto::cn_context cryptoContext;
 
     while (m_state == MiningState::MINING_IN_PROGRESS) {
       CachedBlock cachedBlock(block);
-      Crypto::Hash hash = cachedBlock.getBlockLongHash(cryptoContext, cryptonightVariant);
+      Crypto::Hash hash = cachedBlock.getBlockLongHash(cryptoContext);
       if (check_hash(hash, difficulty)) {
         m_logger(Logging::INFO) << "Found block for difficulty " << difficulty;
 

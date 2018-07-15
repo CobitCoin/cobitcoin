@@ -299,11 +299,8 @@ namespace CryptoNote
             lb.nonce = nonce;
 
             CachedBlock cb(lb);
-            uint32_t cn_variant = 0;
-//            if (m_currency.POWCryptoNightV7BlockIndex() && m_currency.POWCryptoNightV7BlockIndex() <= cb.getBlockIndex() && (m_currency.POWCryptoNightV7LastBlock() == 0 || m_currency.POWCryptoNightV7LastBlock() >= cb.getBlockIndex()))
-//              cn_variant = 1;
             try {
-              h = cb.getBlockLongHash(localctx, cn_variant);
+              h = cb.getBlockLongHash(localctx);
             } catch (std::exception&) {
               return;
             }
@@ -330,11 +327,8 @@ namespace CryptoNote
       for (; bl.nonce != std::numeric_limits<uint32_t>::max(); bl.nonce++) {
         Crypto::Hash h;
         CachedBlock cb(bl);
-        uint32_t cn_variant = 0;
-//        if (m_currency.POWCryptoNightV7BlockIndex() && m_currency.POWCryptoNightV7BlockIndex() <= cb.getBlockIndex() && (m_currency.POWCryptoNightV7LastBlock() == 0 || m_currency.POWCryptoNightV7LastBlock() >= cb.getBlockIndex()))
-//          cn_variant = 1;
         try {
-          h = cb.getBlockLongHash(context, cn_variant);
+          h = cb.getBlockLongHash(context);
         } catch (std::exception&) {
           return false;
         }
@@ -414,12 +408,9 @@ namespace CryptoNote
       Crypto::Hash h;
 
       CachedBlock cb(b);
-      uint32_t cn_variant = 0;
-      if (m_currency.POWCryptoNightV7BlockIndex() && m_currency.POWCryptoNightV7BlockIndex() <= cb.getBlockIndex() && (m_currency.POWCryptoNightV7LastBlock() == 0 || m_currency.POWCryptoNightV7LastBlock() >= cb.getBlockIndex()))
-        cn_variant = 1;
       if (!m_stop) {
         try {
-          h = cb.getBlockLongHash(context, cn_variant);
+          h = cb.getBlockLongHash(context);
         } catch (std::exception& e) {
           logger(ERROR) << "getBlockLongHash failed: " << e.what();
           m_stop = true;

@@ -176,7 +176,7 @@ void MinerManager::pushEvent(MinerEvent&& event) {
 void MinerManager::startMining(const CryptoNote::BlockMiningParameters& params) {
   m_contextGroup.spawn([this, params] () {
     try {
-  m_minedBlock = m_miner.mine(params, m_config.threadCount, m_config.cryptonightVariant);
+      m_minedBlock = m_miner.mine(params, m_config.threadCount);
       pushEvent(BlockMinedEvent());
     } catch (System::InterruptedException&) {
     } catch (std::exception& e) {

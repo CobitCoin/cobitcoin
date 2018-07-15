@@ -37,7 +37,6 @@ struct MiningConfig {
   size_t blocksLimit;
   uint64_t firstBlockTimestamp;
   int64_t blockTimestampInterval;
-  uint32_t cryptonightVariant;
   bool help;
 };
 
