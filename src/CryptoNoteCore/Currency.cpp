@@ -538,7 +538,7 @@ bool Currency::checkProofOfWorkV1(Crypto::cn_context& context, const CachedBlock
   }
 
   uint32_t cn_variant = 0;
-  if (m_POWCryptoNightV7BlockIndex <= cachedBlock.getBlockIndex())
+  if (m_POWCryptoNightV7BlockIndex && m_POWCryptoNightV7BlockIndex <= block.getBlockIndex() )
     cn_variant = 1;
   return check_hash(block.getBlockLongHash(context, cn_variant), currentDifficulty);
 }
@@ -550,7 +550,7 @@ bool Currency::checkProofOfWorkV2(Crypto::cn_context& context, const CachedBlock
   }
 
   uint32_t cn_variant = 0;
-  if (m_POWCryptoNightV7BlockIndex <= cachedBlock.getBlockIndex())
+  if (m_POWCryptoNightV7BlockIndex && m_POWCryptoNightV7BlockIndex <= cachedBlock.getBlockIndex() )
     cn_variant = 1;
   if (!check_hash(cachedBlock.getBlockLongHash(context, cn_variant), currentDifficulty)) {
     return false;
