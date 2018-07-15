@@ -36,10 +36,10 @@ const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 60;
 // MONEY_SUPPLY - total number coins to be generated
 const uint64_t MONEY_SUPPLY                                  = UINT64_C(3000000000000000);
 const uint32_t KILL_HEIGHT                          = 0;
-const uint32_t ZAWY_LWMA2_DIFFICULTY_BLOCK_INDEX                 = 13350;
-const uint32_t ZAWY_LWMA2_DIFFICULTY_LAST_BLOCK                 = 4294967294;
-const uint64_t ZAWY_LWMA2_DIFFICULTY_MIN                  = 10000;
-const size_t ZAWY_LWMA2_DIFFICULTY_N                 = 70+1;
+const uint32_t ZAWY_DIFFICULTY_BLOCK_INDEX                 = 13350;
+const uint32_t ZAWY_DIFFICULTY_LAST_BLOCK                 = 4294967294;
+const uint64_t ZAWY_DIFFICULTY_MIN                 = 1;
+const uint32_t BUGGED_ZAWY_DIFFICULTY_BLOCK_INDEX                 = 0;
 const unsigned EMISSION_SPEED_FACTOR                         = 17;
 const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(1000000000000000);
 static_assert(EMISSION_SPEED_FACTOR <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
@@ -130,6 +130,7 @@ const uint32_t P2P_DEFAULT_CONNECTION_TIMEOUT                = 5000;          //
 const uint32_t P2P_DEFAULT_PING_CONNECTION_TIMEOUT           = 2000;          // 2 seconds
 const uint64_t P2P_DEFAULT_INVOKE_TIMEOUT                    = 60 * 2 * 1000; // 2 minutes
 const size_t   P2P_DEFAULT_HANDSHAKE_INVOKE_TIMEOUT          = 5000;          // 5 seconds
+
 const uint32_t  P2P_FAILED_ADDR_FORGET_SECONDS                  = (60*60);     //1 hour
 const uint32_t  P2P_IP_BLOCKTIME                                 = (60*60*24);  //24 hour
 const uint32_t  P2P_IP_FAILS_BEFORE_BLOCK                       = 10;
