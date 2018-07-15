@@ -74,6 +74,7 @@ MiningConfig::MiningConfig(): help(false) {
       ("scan-time", po::value<size_t>()->default_value(DEFAULT_SCANT_PERIOD), "Blockchain polling interval (seconds). How often miner will check blockchain for updates")
       ("log-level", po::value<int>()->default_value(1), "Log level. Must be 0..5")
       ("limit", po::value<size_t>()->default_value(0), "Mine exact quantity of blocks. 0 means no limit")
+      ("cryptonight-variant", po::value<uint32_t>()->default_value(0), "CryptoNight variant. 0 for default. 1 for CryptoNightV7")
       ("first-block-timestamp", po::value<uint64_t>()->default_value(0), "Set timestamp to the first mined block. 0 means leave timestamp unchanged")
       ("block-timestamp-interval", po::value<int64_t>()->default_value(0), "Timestamp step for each subsequent block. May be set only if --first-block-timestamp has been set."
                                                          " If not set blocks' timestamps remain unchanged");
@@ -127,6 +128,7 @@ void MiningConfig::parse(int argc, char** argv) {
     throw std::runtime_error("If you specify --block-timestamp-interval you must specify --first-block-timestamp either");
   }
 
+  cryptonightVariant = options["cryptonight-variant"].as<uint32_t>();
   firstBlockTimestamp = options["first-block-timestamp"].as<uint64_t>();
   blockTimestampInterval = options["block-timestamp-interval"].as<int64_t>();
 }

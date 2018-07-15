@@ -41,7 +41,7 @@ public:
   Miner(System::Dispatcher& dispatcher, Logging::ILogger& logger);
   ~Miner();
 
-  BlockTemplate mine(const BlockMiningParameters& blockMiningParameters, size_t threadCount);
+  BlockTemplate mine(const BlockMiningParameters& blockMiningParameters, size_t threadCount, uint32_t cryptonightVariant = 0);
 
   //NOTE! this is blocking method
   void stop();
@@ -59,8 +59,8 @@ private:
 
   Logging::LoggerRef m_logger;
 
-  void runWorkers(BlockMiningParameters blockMiningParameters, size_t threadCount);
-  void workerFunc(const BlockTemplate& blockTemplate, Difficulty difficulty, uint32_t nonceStep);
+  void runWorkers(BlockMiningParameters blockMiningParameters, size_t threadCount, uint32_t cryptonightVariant = 0);
+  void workerFunc(const BlockTemplate& blockTemplate, Difficulty difficulty, uint32_t nonceStep, uint32_t cryptonightVariant = 0);
   bool setStateBlockFound();
 };
 

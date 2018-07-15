@@ -49,10 +49,8 @@ public:
 
   size_t rewardBlocksWindow() const { return m_rewardBlocksWindow; }
   uint32_t killHeight() const { return m_killHeight; }
-  uint32_t zawyDifficultyBlockIndex() const { return m_zawyDifficultyBlockIndex; }
-  uint32_t zawyDifficultyLastBlock() const { return m_zawyDifficultyLastBlock; }
-  uint64_t zawyDifficultyMin() const { return m_zawyDifficultyMin; }
-  uint32_t buggedZawyDifficultyBlockIndex() const { return m_buggedZawyDifficultyBlockIndex; }
+  uint32_t POWCryptoNightV7BlockIndex() const { return m_POWCryptoNightV7BlockIndex; }
+  uint32_t POWCryptoNightV7LastBlock() const { return m_POWCryptoNightV7LastBlock; }
   size_t blockGrantedFullRewardZone() const { return m_blockGrantedFullRewardZone; }
   size_t blockGrantedFullRewardZoneByBlockVersion(uint8_t blockMajorVersion) const;
   size_t minerTxBlobReservedSize() const { return m_minerTxBlobReservedSize; }
@@ -128,7 +126,6 @@ size_t difficultyBlocksCountByBlockVersion(uint8_t blockMajorVersion) const;
   bool parseAmount(const std::string& str, uint64_t& amount) const;
 
   Difficulty nextDifficulty(std::vector<uint64_t> timestamps, std::vector<Difficulty> cumulativeDifficulties) const;
-Difficulty nextDifficultyZawyV1(uint8_t version, uint32_t blockIndex, std::vector<uint64_t> timestamps, std::vector<Difficulty> cumulativeDifficulties) const;
 Difficulty nextDifficulty(uint8_t version, uint32_t blockIndex, std::vector<uint64_t> timestamps, std::vector<Difficulty> cumulativeDifficulties) const;
 Difficulty nextDifficultyDefault(uint8_t version, uint32_t blockIndex, std::vector<uint64_t> timestamps, std::vector<Difficulty> cumulativeDifficulties) const;
 
@@ -164,10 +161,8 @@ private:
 
   size_t m_rewardBlocksWindow;
   uint32_t m_killHeight;
-  uint32_t m_zawyDifficultyBlockIndex;
-  uint32_t m_zawyDifficultyLastBlock;
-  uint64_t m_zawyDifficultyMin;
-  uint32_t m_buggedZawyDifficultyBlockIndex;
+  uint32_t m_POWCryptoNightV7BlockIndex;
+  uint32_t m_POWCryptoNightV7LastBlock;
   size_t m_blockGrantedFullRewardZone;
   size_t m_minerTxBlobReservedSize;
 
@@ -249,10 +244,8 @@ public:
 
   CurrencyBuilder& rewardBlocksWindow(size_t val) { m_currency.m_rewardBlocksWindow = val; return *this; }
   CurrencyBuilder& killHeight(uint32_t val) { m_currency.m_killHeight = val; return *this; }
-  CurrencyBuilder& zawyDifficultyBlockIndex(uint32_t val) { m_currency.m_zawyDifficultyBlockIndex = val; return *this; }
-  CurrencyBuilder& zawyDifficultyLastBlock(uint32_t val) { m_currency.m_zawyDifficultyLastBlock = val; return *this; }
-  CurrencyBuilder& zawyDifficultyMin(uint64_t val) { m_currency.m_zawyDifficultyMin = val; return *this; }
-  CurrencyBuilder& buggedZawyDifficultyBlockIndex(uint32_t val) { m_currency.m_buggedZawyDifficultyBlockIndex = val; return *this; }
+  CurrencyBuilder& POWCryptoNightV7BlockIndex(uint32_t val) { m_currency.m_POWCryptoNightV7BlockIndex = val; return *this; }
+  CurrencyBuilder& POWCryptoNightV7LastBlock(uint32_t val) { m_currency.m_POWCryptoNightV7LastBlock = val; return *this; }
   CurrencyBuilder& blockGrantedFullRewardZone(size_t val) { m_currency.m_blockGrantedFullRewardZone = val; return *this; }
   CurrencyBuilder& minerTxBlobReservedSize(size_t val) { m_currency.m_minerTxBlobReservedSize = val; return *this; }
 
